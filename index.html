@@ -18,11 +18,21 @@
                 <li><a>Discover</a></li>
                 <li><a>GetStarted</a></li>
             </ul>
-            <div class="menu-mobile">
-                <img src="./images/icon-hamburger.svg" />
-            </div>
+            <span class="menu-mobile">
+                <img class="hamburger" src="./images/icon-hamburger.svg" />
+                <ul class="menu-mobile-list">
+                    <li>
+                        <a>About</a>
+                    </li>
+                    <li>
+                        <a>Discover</a>
+                    </li>
+                    <li>
+                        <a>GetStarted</a>
+                    </li>
+                </ul>
+            </span>
         </div>
-        <!-- <img src="images/image-hero-desktop.jpg"> -->
     </header>
     <div class="container">
         <img class="logo-mastercraft" src="images/logo-mastercraft.svg" alt="mastercraft">
@@ -112,5 +122,19 @@
         </div>   
     </div>
 
+
+
+<script>
+    const menuMobileBtn = document.querySelector(".menu-mobile")
+    
+    menuMobileBtn.addEventListener("click", handleToggleMenu)
+    
+    function handleToggleMenu() {
+        const menuMobileList = document.querySelector(".menu-mobile-list")
+        const menuMobileListHeight = menuMobileList.clientHeight || menuMobileList.offsetHeight
+        menuMobileList.style.display = menuMobileListHeight ? "none" : "block"
+    }
+
+</script>
 </body>
 </html>

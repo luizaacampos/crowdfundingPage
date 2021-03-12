@@ -13,7 +13,7 @@ body {
 
 header {
     width: 100%;
-    height: 300px;
+    height: 400px;
     background-image: url('../images/image-hero-desktop.jpg');
     margin: 0;
 }
@@ -26,8 +26,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
-    z-index: 999;
 }
 
 .logo {
@@ -43,20 +41,40 @@ header {
     cursor: pointer;
 }
 
-ul {
+.menu {
     display: flex;
     list-style: none;
 }
 
-ul li {
+.menu li {
     padding: 15px;
     color: white;
+}
+
+.menu-mobile-list {
+    background: white;
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    display: none;
+}
+
+.menu-mobile-list li {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid hsl(0, 0%, 48%);
+    list-style: none;
+}
+
+.menu-mobile-list li:hover {
+    background: #EFEFEF;
 }
 
 .container {
     height: auto;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     /* margin-bottom: 200px; */
@@ -241,8 +259,6 @@ ul li {
 
     .container {
         width: 90%;
-        left: 50%;
-        transform: translateX(-50%);
     }
 
     .logo-mastercraft {
