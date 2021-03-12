@@ -127,6 +127,10 @@ header {
     cursor: pointer;
 }
 
+.backProjectBtn:hover {
+    background: hsl(176, 72%, 28%);
+}
+
 .bookmark-img {
     height: 50px;
     margin: 0;
@@ -215,6 +219,10 @@ header {
     color: white;
     width: 150px;
     cursor: pointer;
+}
+
+.selectBtn:hover {
+    background: hsl(176, 72%, 28%);
 }
 
 .out {
