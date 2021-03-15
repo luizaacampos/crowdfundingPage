@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <div class="header">
+        <div class="header-wrapper">
             <img class="logo" src="images/logo.svg" alt="logo">
             <ul class="menu">
                 <li><a>About</a></li>
@@ -21,15 +21,9 @@
             <span class="menu-mobile">
                 <img class="hamburger" src="./images/icon-hamburger.svg" />
                 <ul class="menu-mobile-list">
-                    <li>
-                        <a>About</a>
-                    </li>
-                    <li>
-                        <a>Discover</a>
-                    </li>
-                    <li>
-                        <a>GetStarted</a>
-                    </li>
+                    <li><a>About</a></li>
+                    <li><a>Discover</a></li>
+                    <li><a>GetStarted</a></li>
                 </ul>
             </span>
         </div>
@@ -78,7 +72,7 @@
             <div class="box inDiv">
                 <div class="flex">
                     <h3>Bamboo Stand</h3>
-                    <span>Pledge $25 or more</span>
+                    <span class="pledge">Pledge $25 or more</span>
                 </div>
                 <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.</p>
                 <div class="flex">
@@ -93,7 +87,7 @@
             <div class="box inDiv">
                 <div class="flex">
                     <h3>Black Edition Stand</h3>
-                    <span>Pledge $75 or more</span>
+                    <span  class="pledge">Pledge $75 or more</span>
                 </div>
                 <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
                 <div class="flex">
@@ -108,7 +102,7 @@
             <div class="box inDiv out">
                 <div class="flex">
                     <h3>Mahogany Special Edition</h3>
-                    <span>Pledge $200 or more</span>
+                    <span  class="pledge">Pledge $200 or more</span>
                 </div>
                 <p>You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
                 <div class="flex">
@@ -119,21 +113,161 @@
                     <button type="button" disabled class="outBtn btn">Out of stock</button>
                 </div>
             </div>
-        </div>   
+        </div> 
     </div>
+        
+    <!-- Modais -->
+        <div class="modalBackThisProject">
+            <div class="content">
+                <span class="closeModal">
+                    <img src="./images/icon-close-modal.svg" />
+                </span>
+                <h2>Back this project</h2>
+                <p>Want to support us in bringing Mastercraft Monitor Riser out in the world?</p>
+                <div class="box" id="box1">
+                    <div class="flexTitle">
+                        <input id="type1" type="radio"></input>
+                        <span class="optionTitle">Pledge with no reward</span>
+                    </div>
+                    <p>Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
+                    <div class="enterYourPledge" id="div1">
+                        <p>Enter your pledge</p>
+                        <div class="buttons-container">
+                            <div><strong>$</strong><input placeholder=" --"></input></div>
+                            <button class="continueBtn btn">Continue</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" id="box2">
+                    <div class="flex">
+                        <div class="flexTitle">
+                            <input id="type2" type="radio"></input>
+                            <span class="optionTitle">Bamboo Stand</span>
+                            <span class="pledge">Pledge $25 or more</span>
+                        </div>
+                        <span><strong>101</strong> left</span>
+                    </div>
+                    <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.</p>
+                    <div class="enterYourPledge" id="div2">
+                        <p>Enter your pledge</p>
+                        <div class="buttons-container">
+                            <div><strong>$</strong><input placeholder=" 25"></input></div>
+                            <button class="continueBtn btn">Continue</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" id="box3">
+                    <div class="flex">
+                        <div class="flexTitle">
+                            <input id="type3" type="radio"></input>
+                            <span class="optionTitle">Black Edition Stand</span>
+                            <span class="pledge">Pledge $75 or more</span>
+                        </div>
+                        <span><strong>64</strong> left</span>
+                    </div>
+                    <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
+                    <div class="enterYourPledge" id="div3">
+                        <p>Enter your pledge</p>
+                        <div class="buttons-container">
+                            <div><strong>$</strong><input placeholder=" 75"></input></div>
+                            <button class="continueBtn btn">Continue</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="box out">
+                    <div class="flex">
+                        <div class="flexTitle">
+                            <input type="radio"></input>
+                            <span class="optionTitle">Mahogany Special Edition Stand</span>
+                            <span class="pledge">Pledge $200 or more</span>
+                        </div>
+                        <span><strong>0</strong> left</span>
+                    </div>
+                    <p> You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
+                </div>
+            </div>
+        </div>
+
 
 
 
 <script>
     const menuMobileBtn = document.querySelector(".menu-mobile")
+    const menuMobileList = document.querySelector(".menu-mobile-list")
     
     menuMobileBtn.addEventListener("click", handleToggleMenu)
     
     function handleToggleMenu() {
-        const menuMobileList = document.querySelector(".menu-mobile-list")
-        const menuMobileListHeight = menuMobileList.clientHeight || menuMobileList.offsetHeight
-        menuMobileList.style.display = menuMobileListHeight ? "none" : "block"
+        if (menuMobileList.style.display === "none") {
+            menuMobileList.style.display = "block"
+        } else {
+            menuMobileList.style.display = "none"
+        }
     }
+
+
+
+    const modal = document.querySelector('.modalBackThisProject')
+    const openModalBtn = document.querySelector('.backProjectBtn')
+    const closeModal = document.querySelector('.closeModal')
+
+    openModalBtn.addEventListener('click', () => {
+        modal.style.display = 'block'
+    })
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = "none"
+    })
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none"
+        }
+    })
+
+    const type1 = document.getElementById('type1')
+    const type2 = document.getElementById('type2')
+    const type3 = document.getElementById('type3')
+
+    const div1 = document.getElementById('div1')
+    const div2 = document.getElementById('div2')
+    const div3 = document.getElementById('div3')
+
+    const box1 = document.getElementById('box1')
+    const box2 = document.getElementById('box2')
+    const box3 = document.getElementById('box3')
+
+    type1.addEventListener('click', () => {
+        if (div1.style.display == 'none') {
+            div1.style.display = 'flex'
+            box1.style.border = '2px solid hsl(176, 72%, 28%)'
+        } else {
+            div1.style.display = 'none'
+            box1.style.border = '2px solid #E6E5E5'
+        }
+    })
+
+    type2.addEventListener('click', () => {
+        if (div2.style.display == 'none') {
+            div2.style.display = 'flex'
+            box2.style.border = '2px solid hsl(176, 72%, 28%)'
+        } else {
+            div2.style.display = 'none'
+            box2.style.border = '2px solid #E6E5E5'
+        }
+    })
+
+    type3.addEventListener('click', () => {
+        if (div3.style.display == 'none') {
+            div3.style.display = 'flex'
+            box3.style.border = '2px solid hsl(176, 72%, 28%)'
+        } else {
+            div3.style.display = 'none'
+            box3.style.border = '2px solid #E6E5E5'
+
+        }
+    })
+
 
 </script>
 </body>
