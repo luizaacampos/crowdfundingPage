@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crowdfund</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
@@ -80,7 +80,7 @@
                         <h1>101</h1>
                         <p>left</p>
                     </div>
-                    <button type="button" class="selectBtn btn">Select Reward</button>
+                    <button type="button" id="openModal" class="selectBtn btn">Select Reward</button>
                 </div>
             </div>
             
@@ -95,7 +95,7 @@
                         <h1>64</h1>
                         <p>left</p>
                     </div>
-                    <button type="button" class="selectBtn btn">Select Reward</button>
+                    <button type="button" id="openModal-2" class="selectBtn btn">Select Reward</button>
                 </div>
             </div>
 
@@ -126,22 +126,22 @@
                 <p>Want to support us in bringing Mastercraft Monitor Riser out in the world?</p>
                 <div class="box" id="box1">
                     <div class="flexTitle">
-                        <input id="type1" type="radio"></input>
-                        <span class="optionTitle">Pledge with no reward</span>
+                        <input name="option" id="type1" type="radio" />
+                        <label for="option1" class="optionTitle">Pledge with no reward</label>
                     </div>
                     <p>Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.</p>
                     <div class="enterYourPledge" id="div1">
                         <p>Enter your pledge</p>
-                        <div class="buttons-container">
+                        <div class="buttons-containerModal">
                             <div><strong>$</strong><input placeholder=" --"></input></div>
-                            <button class="continueBtn btn">Continue</button>
+                            <button class="continueBtn btn" id="btn1">Continue</button>
                         </div>
                     </div>
                 </div>
                 <div class="box" id="box2">
                     <div class="flex">
                         <div class="flexTitle">
-                            <input id="type2" type="radio"></input>
+                            <input name="option" id="type2" for="type2" type="radio"></input>
                             <span class="optionTitle">Bamboo Stand</span>
                             <span class="pledge">Pledge $25 or more</span>
                         </div>
@@ -150,16 +150,16 @@
                     <p>You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.</p>
                     <div class="enterYourPledge" id="div2">
                         <p>Enter your pledge</p>
-                        <div class="buttons-container">
+                        <div class="buttons-containerModal">
                             <div><strong>$</strong><input placeholder=" 25"></input></div>
-                            <button class="continueBtn btn">Continue</button>
+                            <button class="continueBtn btn" id="btn2">Continue</button>
                         </div>
                     </div>
                 </div>
                 <div class="box" id="box3">
                     <div class="flex">
                         <div class="flexTitle">
-                            <input id="type3" type="radio"></input>
+                            <input name="option" id="type3" for="type3" type="radio"></input>
                             <span class="optionTitle">Black Edition Stand</span>
                             <span class="pledge">Pledge $75 or more</span>
                         </div>
@@ -168,16 +168,16 @@
                     <p>You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.</p>
                     <div class="enterYourPledge" id="div3">
                         <p>Enter your pledge</p>
-                        <div class="buttons-container">
+                        <div class="buttons-containerModal">
                             <div><strong>$</strong><input placeholder=" 75"></input></div>
-                            <button class="continueBtn btn">Continue</button>
+                            <button class="continueBtn btn" id="btn3">Continue</button>
                         </div>
                     </div>
                 </div>
                 <div class="box out">
                     <div class="flex">
                         <div class="flexTitle">
-                            <input type="radio"></input>
+                            <input type="radio" disabled></input>
                             <span class="optionTitle">Mahogany Special Edition Stand</span>
                             <span class="pledge">Pledge $200 or more</span>
                         </div>
@@ -188,10 +188,23 @@
             </div>
         </div>
 
+        <!-- modal thanks for your support -->
+        <div class="modalThanksForYourSupport">
+            <div class="contentModal2">
+                <div class="modalContainer">
+                    <img src="./images/icon-check.svg" alt="thaks for your support" />
+                    <h1>Thanks for your support!</h1>
+                    <p>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.</p>
+                    <button type="button" class="gotItBtn btn">Got it!</button>
+                </div>
+            </div>
+        </div>
+
 
 
 
 <script>
+    // menu mobile
     const menuMobileBtn = document.querySelector(".menu-mobile")
     const menuMobileList = document.querySelector(".menu-mobile-list")
     
@@ -205,15 +218,16 @@
         }
     }
 
-
-
+    // modal 1
     const modal = document.querySelector('.modalBackThisProject')
     const openModalBtn = document.querySelector('.backProjectBtn')
     const closeModal = document.querySelector('.closeModal')
 
-    openModalBtn.addEventListener('click', () => {
-        modal.style.display = 'block'
-    })
+    const openModal1Alternative = document.getElementById('openModal')
+    const openModal1Alternative2 = document.getElementById('openModal-2')
+
+
+    openModalBtn.addEventListener('click', openModal1)
 
     closeModal.addEventListener('click', () => {
         modal.style.display = "none"
@@ -225,6 +239,41 @@
         }
     })
 
+    openModal1Alternative.addEventListener('click', openModal1)
+    openModal1Alternative2.addEventListener('click', openModal1)
+
+    function openModal1() {
+        modal.style.display = "block"
+    }
+
+    // modal 2
+    const modal2 = document.querySelector('.modalThanksForYourSupport')
+    const openModal2Btn1 = document.getElementById('btn1')
+    const openModal2Btn2 = document.getElementById('btn2')
+    const openModal2Btn3 = document.getElementById('btn3')
+    const closeModal2 = document.querySelector('.gotItBtn')
+
+
+    openModal2Btn1.addEventListener('click', () => {
+        modal.style.display = "none"
+        modal2.style.display = "block"
+    })
+
+    openModal2Btn2.addEventListener('click', () => {
+        modal.style.display = "none"
+        modal2.style.display = "block"
+    })
+
+    openModal2Btn3.addEventListener('click', () => {
+        modal.style.display = "none"
+        modal2.style.display = "block"
+    })
+
+    closeModal2.addEventListener('click', () => {
+        modal2.style.display = "none"
+    })
+
+    // radio buttons
     const type1 = document.getElementById('type1')
     const type2 = document.getElementById('type2')
     const type3 = document.getElementById('type3')
@@ -237,37 +286,38 @@
     const box2 = document.getElementById('box2')
     const box3 = document.getElementById('box3')
 
-    type1.addEventListener('click', () => {
-        if (div1.style.display == 'none') {
-            div1.style.display = 'flex'
-            box1.style.border = '2px solid hsl(176, 72%, 28%)'
-        } else {
-            div1.style.display = 'none'
-            box1.style.border = '2px solid #E6E5E5'
-        }
+    type1.addEventListener('click', function() {
+        div2.style.display = 'none'
+        box2.style.border = '2px solid #E6E5E5'
+
+        div3.style.display = 'none'
+        box3.style.border = '2px solid #E6E5E5'
+
+        div1.style.display = 'flex'
+        box1.style.border = '2px solid hsl(176, 72%, 28%)'
     })
 
     type2.addEventListener('click', () => {
-        if (div2.style.display == 'none') {
-            div2.style.display = 'flex'
-            box2.style.border = '2px solid hsl(176, 72%, 28%)'
-        } else {
-            div2.style.display = 'none'
-            box2.style.border = '2px solid #E6E5E5'
-        }
+        div1.style.display = 'none'
+        box1.style.border = '2px solid #E6E5E5'
+
+        div3.style.display = 'none'
+        box3.style.border = '2px solid #E6E5E5'
+
+        div2.style.display = 'flex'
+        box2.style.border = '2px solid hsl(176, 72%, 28%)'
     })
 
     type3.addEventListener('click', () => {
-        if (div3.style.display == 'none') {
-            div3.style.display = 'flex'
-            box3.style.border = '2px solid hsl(176, 72%, 28%)'
-        } else {
-            div3.style.display = 'none'
-            box3.style.border = '2px solid #E6E5E5'
+        div1.style.display = 'none'
+        box1.style.border = '2px solid #E6E5E5'
 
-        }
+        div2.style.display = 'none'
+        box2.style.border = '2px solid #E6E5E5'
+
+        div3.style.display = 'flex'
+        box3.style.border = '2px solid hsl(176, 72%, 28%)'
     })
-
 
 </script>
 </body>
