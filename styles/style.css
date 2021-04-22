@@ -86,7 +86,7 @@ li:last-child {
     top: 30%;
     left: 50%;
     transform: translateX(-50%);
-    /* margin-bottom: 200px; */
+    margin-bottom: 200px;
 }
 
 .logo-mastercraft {
@@ -244,7 +244,26 @@ li:last-child {
     color: white;
     width: 150px;
     cursor: not-allowed;
-} 
+}
+
+footer {
+    height: 100px;
+    padding: 30px;
+    background: #EFEFEF;
+}
+
+footer p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #8B8989;
+}
+
+
 
 .modalBackThisProject {
     display: none;
